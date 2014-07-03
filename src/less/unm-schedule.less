@@ -1,0 +1,115 @@
+/********************************/
+/* UNM schedule css */
+/******************/
+
+.unm-schedule {
+    hr {
+        &.college-divider {
+            height: 3px;
+            background-color: #c10037;
+            border: 0;
+            margin: 2em 0 0 0;
+        }
+    }
+    h3 {
+        color: #c10037;
+        font-size: 1.5em;
+        margin-top: 0;
+    }
+    h4 {
+        margin-top: 1.3em;
+        margin-bottom: .5em;
+        font-weight: bold;
+    }
+    h5 {
+        width: 100%;
+        overflow: auto;
+        a {
+            font-weight: normal;
+        }
+    }
+    caption {
+        font-size: 1.5em;
+        line-height: 1em;
+        margin-top: 1em;
+        margin-bottom: .25em;
+        text-align: left;
+        vertical-align: top;
+    }
+    thead {
+        th {
+            color: white;
+            background: #C10037;
+            font-size: 1.1em;
+            text-align: left;
+        }
+    }
+    tr {
+        &.section-title {
+            td {
+                border: 0;
+                font-weight: bold;
+            }
+        }
+        &.canceled {
+            text-decoration: line-through;
+            td {
+                text-decoration: line-through;
+            }
+        }
+    }
+    table {
+        &.schedule-sessions {
+            width: 100%;
+            td {
+                border: 0;
+                padding: 5px 10px;
+                border-bottom: 1px solid #CCC;
+                vertical-align: top;
+            }
+            th {
+                border: 0;
+                padding: 5px 10px;
+                border-bottom: 1px solid #CCC;
+                vertical-align: top;
+            }
+        }
+    }
+    .status-c {
+        color: #666;
+    }
+    .status-m {
+        color: #666;
+    }
+    .status-s {
+        color: #666;
+    }
+    .status-t {
+        color: #666;
+    }
+    .cancelled-section {
+        color: #c10037;
+        font-weight: bold;
+    }
+    .course {
+        border-bottom: 1px solid silver;
+        h3 {
+            color: inherit;
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+    .course-info {
+        &.in {
+            background-color: #FAFAFA;
+            padding: 15px;
+            border: 1px solid #C0C0C0;
+            margin-bottom: -1px;
+        }
+        p {
+            margin: 0 20px 10px 0;
+            width: 95%;
+        }
+    }
+}
+

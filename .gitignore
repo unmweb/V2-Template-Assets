@@ -1,0 +1,8 @@
+*.class
+*.pyc
+*.pyo
+.DS_Store
+dist
+bower_components
+node_modules
+src/old

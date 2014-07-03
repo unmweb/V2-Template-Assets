@@ -1,0 +1,202 @@
+//
+// UNM Template Layouts
+// --------------------------------------------------
+
+
+
+
+
+
+
+
+/* 2 sidebars  then Content */
+#ssc {
+	#primary {
+	.make-xs-column(12);
+	.make-sm-column(6);
+	.make-sm-column-push(6);
+	}
+	
+	#secondary {
+	.make-xs-column(6);
+	.make-sm-column(3);
+	.make-sm-column-pull(6);
+	}
+	
+	#tertiary {
+	.make-xs-column(6);
+	.make-sm-column(3);
+	.make-sm-column-pull(6);
+	}
+}
+/* call outside of generated layout to force float right to deal with different content lenghts */
+
+
+
+
+
+
+
+/* Sidebar Content Sidebar */
+#scs {
+	#primary {
+    .make-xs-column(12);
+	.make-sm-column(6);
+	.make-sm-column-push(3);
+	}
+	
+	#secondary {
+	.make-xs-column(6);
+	.make-sm-column(3);
+	.make-sm-column-pull(6);
+	}
+	
+	#tertiary {
+	.make-xs-column(6);
+	.make-sm-column(3);
+	}
+}
+
+/* Content w/ 2 sidebars */
+#css {
+	#primary {
+	.make-xs-column(12);
+	.make-sm-column(6);
+
+	
+	}
+	
+	#secondary {
+	.make-xs-column(6);
+	.make-sm-column(3);
+	}
+	
+	#tertiary {
+	.make-xs-column(6);
+	.make-sm-column(3);
+	}
+}
+
+
+/* Content w/ 2 stacked sidebars */
+
+#cs {
+	
+	
+	#primary {
+
+	.make-xs-column(12);	
+	.make-sm-column(9);		
+	}
+	
+	#secondary {
+	.make-xs-column(6);	
+	.make-sm-column(3);
+	}
+	
+	#tertiary {
+	.make-xs-column(12);
+	.make-sm-column(6);
+	.make-md-column(3);
+	}
+	
+}
+
+/* call outside of generated layout to force float right to deal with different content lenghts */
+#cs #tertiary {
+	float:right;
+	}
+
+	
+	
+/* 2 stacked sidebars then Content */	
+	
+#sc {
+	#primary {
+	.make-xs-column(12);
+	.make-sm-column(9);
+	.make-sm-column-push(3);
+	}
+	
+	#secondary {
+	.make-xs-column(12);
+	.make-sm-column(3);
+	.make-sm-column-pull(9);
+	}
+	
+	#tertiary {
+	.make-xs-column(12);
+	.make-sm-column(3);
+	.make-sm-column-pull(9);
+	}
+}
+
+/* call outside of generated layout to force float right to deal with different content lenghts */
+#sc #tertiary {
+	float:right;
+	}
+	
+
+/* 1 Column (stacked) */
+	
+#c {
+	#primary {
+	.make-sm-column(12);
+	padding-left: 15px;
+	padding-right: 15px;
+	}
+	
+	#secondary {
+	.make-sm-column(12);
+	padding-left: 15px;
+	padding-right: 15px;
+	}
+	
+	#tertiary {
+	.make-sm-column(12);
+	padding-left: 15px;
+	padding-right: 15px;
+	}
+}
+
+
+
+
+/* Content w/ 2 sidebars */
+
+
+#c2s {
+	#primary {
+	.make-xs-column(12);
+	.make-sm-column(12);
+	}
+	
+	#secondary {
+		.make-xs-column(12);
+		.make-sm-column(6);
+	}
+	
+	#tertiary {
+		.make-xs-column(12);
+		.make-sm-column(6);
+
+	}
+}
+
+
+/* 3 equal width columsn*/
+#sss {
+	#primary {
+	.make-sm-column(4);
+	}
+	
+	#secondary {
+		.make-sm-column(4);
+	}
+	
+	#tertiary {
+		.make-sm-column(4);
+
+	}
+}
+
