@@ -1,0 +1,24 @@
+{
+  "name": "unm-template-v2",
+  "version": "2.0.0",
+  "description": "UNM Template v2",
+  "authors": [
+    "Matt Carter"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "fontawesome": "~4.1.0",
+    "lato": "~0.2.0",
+    "jquery": "1.11.1",
+    "jquery-ui": "~1.11.0"
+  }
+}
