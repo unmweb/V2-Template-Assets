@@ -133,7 +133,7 @@ module.exports = function(grunt) {
 		watch: {
 		    styles: {
 		        files: ['src/less/*'],
-		        tasks: ['less:dev', 'csslint'],
+		        tasks: ['less:dev'],
 		        options: {
 		            spawn: false,
         		},
