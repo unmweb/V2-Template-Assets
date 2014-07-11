@@ -8,17 +8,41 @@
     color: #FFF;
     display: none;
     z-index: 990;
-    padding: 50px 0 30px 0;
+    padding: 20px 0 20px 0;
     border-bottom: 5px solid #C10037;
     box-shadow: 0 5px 5px 0 rgba(0,0,0, .3);
+    font-size:12px;
+
+    h1 {
+        font-size: 24px;
+        margin: 0 0 15px 0;
+        border-bottom: 1px solid #C0C0C0;
+        padding-bottom: 4px;
+    }
 
     h2 {
         border-bottom: 1px solid #FFF;
         border-color: rgba(255, 255, 255, 0.25);
+        font-size: 16px;
+        margin: 0;
     }
     a {
         color:#fff;
+        
     }
+
+    .media {
+        margin: 0;
+        padding: 10px;
+        background-color:transparent;
+        transition: background-color 0.5s ease;
+        
+    }
+    .media:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .quicklinks a { text-decoration:none;}
+    
 }
 .unm_panel_open a .caret, .unm_panel_open a:hover .caret {
     border-top-color: #FFF;
@@ -29,4 +53,18 @@
     border-right: 4px solid transparent;
     border-bottom: 4px solid #FFF;
     border-top: none;
+}
+
+
+#unm_weather {
+  
+    .current_conditions {
+        font-size: 1.25em;
+    }
+    .current_temp {
+        font-size: 3em;
+        line-height:1;
+    }
+
+
 }

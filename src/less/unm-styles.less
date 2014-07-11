@@ -76,7 +76,7 @@
 }
 /*  misc to file */
 #hero {
-background-color: #C10037;
+background-color: @brand-primary;
 margin-bottom: 1em;
 }
 
@@ -94,3 +94,21 @@ height: auto;
 font-size: 75px;
 margin-top: 30px;
 }
+
+
+#mobile-menu {
+  margin: 0 -15px;
+}
+#mobile-menu  .nav > li > a {
+  padding: 5px 15px;
+}
+
+#mobile-menu  a.active {
+  background-color:@brand-primary;
+  color:#fff;
+}
+#mobile-menu  .nav > li >  a::after, 
+#mobile-menu  .nav > li >  a:hover:after {
+  border:0;
+}
+
