@@ -57,17 +57,17 @@ jQuery('.unm_panel_open').click(function(event) {
  
 /* Panel JSON Test
 **********************/
-
 /* Loading JSON objects using JSONP */
 (function($) {
     
-    var url = 'http://wcmsdev.unm.edu/json/json.php';
+    var url = 'http://webcore.unm.edu/json.php';
     $.ajax({
        type: 'GET',
         url: url,
         async: false,
         contentType: "application/json",
         dataType: 'jsonp',
+        data: { content: "v2/unm-panel.html"},
         jsonpCallback: "JsonCallBack",
        
         error: function( xhr,err,exception, status) {
@@ -82,4 +82,38 @@ function JsonCallBack(data){
     //It's really here
     $("#unm_panel .container").append(data.panel);
 }
+
+
+/**********Load Lobo Alerts  *******/
+/* Loading JSON objects using JSONP */
+(function($) {
+    
+    var url = 'https://webcore.unm.edu/v2/loboalerts-test.json';
+    $.ajax({
+       type: 'GET',
+        url: url,
+        async: false,
+        contentType: "application/json",
+        dataType: 'jsonp',
+        jsonpCallback: "LoboAlertCallBack",
+       
+        error: function( xhr,err,exception, status) {
+            console.log( 'Sample of error data:', err );
+            console.log(status +" "+exception);
+            console.log("readyState: "+xhr.readyState+"\nstatus: "+xhr.status+"\nresponseText: "+xhr.responseText);
+    }    
+    });
+})(jQuery);
+
+function LoboAlertCallBack(data){
+    //It's really here
+    $(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
+    $("#loboalert .content").append('<hgroup><h2>' + data.alert + '</h2><h3>' + data.date + '</h3></hgroup>');
+    $("#loboalert .content").append('<p>' + data.details + ' <a href="' + data.link + '">Read More</a></p>');
+}
+
+
+
+
+
 

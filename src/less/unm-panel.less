@@ -1,0 +1,32 @@
+#unm_panel {
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    background-color: @gray-dark;
+    background-color: fade(@gray-dark, 90%);
+    color: #FFF;
+    display: none;
+    z-index: 990;
+    padding: 50px 0 30px 0;
+    border-bottom: 5px solid #C10037;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0, .3);
+
+    h2 {
+        border-bottom: 1px solid #FFF;
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+    a {
+        color:#fff;
+    }
+}
+.unm_panel_open a .caret, .unm_panel_open a:hover .caret {
+    border-top-color: #FFF;
+    border-bottom-color: #FFF;
+}
+.unm_panel_open a .caret.up, .unm_panel_open a:hover .caret.up {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #FFF;
+    border-top: none;
+}
