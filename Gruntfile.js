@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                     optimization: 99
                 },
                 files: {
-                    "dist/css/style.css": [
+                    "dist/css/unm-styles.css": [
                     	"bower_components/fontawesome/less/font-awesome.less", // Font Awesome
                     	"src/less/unm-styles.less",  // Bootstrap and UNM Styles in one
                     	//"src/css/unm-styles.css",  // Straight CSS - UNM
