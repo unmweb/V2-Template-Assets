@@ -11,6 +11,7 @@ else {
 }
 
 $( document ).ready(function() {
+	moveMenu(); // run initial to see if screen is small already
     $(window).resize(function() {moveMenu(); });        
 });
 
@@ -46,14 +47,17 @@ $( document ).ready(function() {
     	                                                
 /* Add UNM Panel
 ***********************/
-jQuery("body").append('<div id="unm_panel"><div class="container"></div></div>');
-jQuery("#toolbar-nav").append('<li class="unm_panel_open hidden-sm"><a href="#panel">more <span class="caret"></span></a></li>');
-    
-jQuery('.unm_panel_open').click(function(event) {
-    event.preventDefault();
-    $( '.unm_panel_open .caret' ).toggleClass( "up" );
-    $( "#unm_panel" ).slideToggle('slow');       
-}); 
+
+$(function() {
+	jQuery("body").append('<div id="unm_panel" class="hidden-xs hidden-sm"><div class="container"></div></div>');
+	jQuery("#toolbar-nav").append('<li class="unm_panel_open hidden-sm"><a href="#panel">more <span class="caret"></span></a></li>');
+	    
+	jQuery('.unm_panel_open').click(function(event) {
+	    event.preventDefault();
+	    $( '.unm_panel_open .caret' ).toggleClass( "up" );
+	    $( "#unm_panel" ).slideToggle('slow');       
+	}); 
+});
  
 /* Panel JSON Test
 **********************/
@@ -80,7 +84,7 @@ jQuery('.unm_panel_open').click(function(event) {
 
 function JsonCallBack(data){
     //It's really here
-    $("#unm_panel .container").append(data.panel);
+    $("#unm_panel .container").append(data.content);
 }
 
 
@@ -88,7 +92,7 @@ function JsonCallBack(data){
 /* Loading JSON objects using JSONP */
 (function($) {
     
-    var url = 'https://webcore.unm.edu/v2/loboalerts-test.json';
+    var url = 'https://webcore.unm.edu/v2/loboalerts.json';
     $.ajax({
        type: 'GET',
         url: url,
@@ -107,9 +111,11 @@ function JsonCallBack(data){
 
 function LoboAlertCallBack(data){
     //It's really here
-    $(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
-    $("#loboalert .content").append('<hgroup><h2>' + data.alert + '</h2><h3>' + data.date + '</h3></hgroup>');
-    $("#loboalert .content").append('<p>' + data.details + ' <a href="' + data.link + '">Read More</a></p>');
+    if (data.alert != 'none') {
+	    $(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
+	    $("#loboalert .content").append('<hgroup><h2>' + data.alert + '</h2><h3>' + data.date + '</h3></hgroup>');
+	    $("#loboalert .content").append('<p>' + data.details + ' <a href="' + data.link + '">Read More</a></p>');
+   }
 }
 
 
