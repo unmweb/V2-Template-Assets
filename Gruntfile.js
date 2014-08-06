@@ -68,8 +68,7 @@ module.exports = function(grunt) {
                 files: {
                     "dist/css/unm-styles.css": [
                     	"bower_components/fontawesome/less/font-awesome.less", // Font Awesome
-                    	"src/less/unm-styles.less",  // Bootstrap and UNM Styles in one
-                    	//"src/css/unm-styles.css",  // Straight CSS - UNM
+                    	"src/less/unm-styles.less"  // Bootstrap and UNM Styles in one
                       ]	
                 }
             },
@@ -84,20 +83,18 @@ module.exports = function(grunt) {
                 files: {
                     "dist/css/style.css": [
                     	"bower_components/fontawesome/less/font-awesome.less", // Font Awesome
-                    	"src/less/unm-styles.less",  // Bootstrap and UNM Styles in one
-                    	//"src/css/unm-styles.css",  // Straight CSS - UNM
+                    	"src/less/unm-styles.less"  // Bootstrap and UNM Styles in one
                       ]	
                 }
             }
         },
 
-		csslint: {
-			
-		  	lax: {
-		    	options: {
-		      		import: false
-		    	},
-		    	src: ['dist/**/*.css']
+		csslint: {		
+			  	lax: {
+			    	options: {
+			      		import: false
+			    	},
+			    	src: ['dist/**/*.css']
 		  	}
 		},
 
