@@ -41,13 +41,35 @@
   border-radius: 0;
   margin-bottom:0;
   
+  
+  
+    .navbar-brand {
+        background: #FFF;
+        position: absolute;
+        border-bottom: 3px solid #C10037;
+        box-shadow: 0 0 5px 2px #CCC;
+        background-image: url(http://wcmsdev.unm.edu/assets/img/unm-logo-tab.gif);
+        text-indent: -999px;
+        width: 200px;
+        background-repeat: no-repeat;
+        height: auto;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        margin-left: 0;
+        padding: 20px;
+        top: -1px;
+        z-index:100;
+    }
+      
+ 
+  
   .navbar-brand {
     color: @navbar-unm-brand-color;
-    &:hover,
-    &:focus {
-      color: @navbar-unm-brand-hover-color;
-      background-color: @navbar-unm-brand-hover-bg;
-    }
+   // &:hover,
+   // &:focus {
+   //   color: @navbar-unm-brand-hover-color;
+   //   background-color: @navbar-unm-brand-hover-bg;
+   // }
   }
 
   .navbar-text {
