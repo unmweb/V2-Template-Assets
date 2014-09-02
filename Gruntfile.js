@@ -2,9 +2,8 @@ module.exports = function(grunt) {
 
     // 1. All configuration goes here 
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        
-        
+    	
+        pkg: grunt.file.readJSON('package.json'),   
         
         clean: {
   			build: {
