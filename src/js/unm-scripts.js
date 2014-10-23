@@ -72,7 +72,7 @@ $(".dropdown-menu li").has("ul").hover(function(e) {
 
 /* Add UNM Panel
  ***********************/
-$(function() {
+function addPanel() {
 	jQuery("body").append('<div id="unm_panel" class="hidden-xs hidden-sm"><div class="container"></div></div>');
 	jQuery("#toolbar-nav").append('<li class="unm_panel_open hidden-sm"><a href="#panel">more <span class="caret"></span></a></li>');
 
@@ -81,17 +81,16 @@ $(function() {
 		$('.unm_panel_open .caret').toggleClass("up");
 		$("#unm_panel").slideToggle('slow');
 	});
-});
+}
 
-/* Panel JSON Test
+/* Panel JSON
  **********************/
-/* Loading JSON objects using JSONP */
+/* Loading JSON objects using JSON */
 
-(function($) {
+$(function($) {
 
-	var url = 'http://webcore.unm.edu/json.php?content=v2/unm-panel.html';
-
-	$.getJSON(url).done(function(data) {
+	$.getJSON('http://webcore.unm.edu/json.php?content=v2/unm-panel.html').done(function(data) {
+		addPanel();
 		$("#unm_panel .container").append(data.content);
 		console.log("JSON Data...");
 	}).fail(function(xhr, err, exception, status) {
@@ -128,7 +127,7 @@ END pre CORS version  */
 
 /**********Load Lobo Alerts  *******/
 /* Loading JSON objects using JSONP */
-(function($) {
+$(function($) {
 	var url = 'http://webcore.unm.edu/v2/loboalerts.json';
 	$.getJSON(url).done(function(data) {
 		if (data.alert != 'none') {
@@ -173,17 +172,19 @@ $("#loboalert .content").append('<p>' + data.details + ' <a href="' + data.link 
 END pre CORS version  */
 
 /********** Scroll to Top *******/
-$("#totop").click(function() {
-	$("html, body").animate({
-		scrollTop : 0
-	}, "slow");
-	return false;
-});
-$(window).scroll(function() {
-	if ($(window).scrollTop() > 200) {
-		$('#totop').fadeIn();
-	} else {
-		$('#totop').fadeOut();
-	}
+$(function($) {
+	$("#totop").click(function() {
+		$("html, body").animate({
+			scrollTop : 0
+		}, "slow");
+		return false;
+	});
+	$(window).scroll(function() {
+		if ($(window).scrollTop() > 200) {
+			$('#totop').fadeIn();
+		} else {
+			$('#totop').fadeOut();
+		}
+	});
 });
 
