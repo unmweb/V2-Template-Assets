@@ -70,8 +70,8 @@ $(".dropdown-menu li").has("ul").hover(function(e) {
 
 });
 
-/* Add UNM Panel
- ***********************/
+/********** UNM Panel  *******/
+/* Add UNM Panel Container */
 function addPanel() {
 	jQuery("body").append('<div id="unm_panel" class="hidden-xs hidden-sm"><div class="container"></div></div>');
 	jQuery("#toolbar-nav").append('<li class="unm_panel_open hidden-sm"><a href="#panel">more <span class="caret"></span></a></li>');
@@ -83,47 +83,18 @@ function addPanel() {
 	});
 }
 
-/* Panel JSON
- **********************/
 /* Loading JSON objects using JSON */
-
 $(function($) {
 
 	$.getJSON('http://webcore.unm.edu/json.php?content=v2/unm-panel.html').done(function(data) {
 		addPanel();
 		$("#unm_panel .container").append(data.content);
-		console.log("JSON Data...");
 	}).fail(function(xhr, err, exception, status) {
 		console.log('Error data:', err);
 		console.log(status + " " + exception);
 		console.log("readyState: " + xhr.readyState + "\nstatus: " + xhr.status + "\nresponseText: " + xhr.responseText);
 	});
 });
-
-/* pre CORS version - delete after verification of new setup
-$.ajax({
-type: 'GET',
-url: url,
-async: false,
-contentType: "application/json",
-dataType: 'jsonp',
-data: { content: "v2/unm-panel.html"},
-jsonpCallback: "JsonCallBack",
-
-error: function( xhr,err,exception, status) {
-console.log( 'Sample of error data:', err );
-console.log(status +" "+exception);
-console.log("readyState: "+xhr.readyState+"\nstatus: "+xhr.status+"\nresponseText: "+xhr.responseText);
-}
-});
-
-})(jQuery);
-
-function JsonCallBack(data){
-//It's really here
-$("#unm_panel .container").append(data.content);
-}
-END pre CORS version  */
 
 /**********Load Lobo Alerts  *******/
 /* Loading JSON objects using JSONP */
@@ -144,33 +115,6 @@ $(function($) {
 	});
 });
 
-/* pre CORS version - delete after verification of new setup
-$.ajax({
-type: 'GET',
-url: url,
-async: false,
-contentType: "application/json",
-dataType: 'jsonp',
-jsonpCallback: "LoboAlertCallBack",
-
-error: function( xhr,err,exception, status) {
-console.log( 'Sample of error data:', err );
-console.log(status +" "+exception);
-console.log("readyState: "+xhr.readyState+"\nstatus: "+xhr.status+"\nresponseText: "+xhr.responseText);
-}
-});
-})(jQuery);
-
-function LoboAlertCallBack(data){
-//It's really here
-if (data.alert != 'none') {
-$(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
-$("#loboalert .content").append('<hgroup><h2>' + data.alert + '</h2><h3>' + data.date + '</h3></hgroup>');
-$("#loboalert .content").append('<p>' + data.details + ' <a href="' + data.link + '">Read More</a></p>');
-}
-}
-END pre CORS version  */
-
 /********** Scroll to Top *******/
 $(function($) {
 	$("#totop").click(function() {
@@ -187,4 +131,3 @@ $(function($) {
 		}
 	});
 });
-
