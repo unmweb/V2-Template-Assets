@@ -65,9 +65,14 @@
         -webkit-border-radius: 0 6px 6px 6px;
         -moz-border-radius: 0 6px 6px 6px;
         border-radius: 0 6px 6px 6px;
+        visibility:hidden;
+        -webkit-transition: visibility 100ms linear 200ms;
+        transition: visibility 100ms linear 200ms;
+        display:block;
     }
     &:hover {
         & > .dropdown-menu {
+            visibility:visible;
             display: block;
         }
         & > a {
@@ -102,6 +107,20 @@
         }
     }
 }
+
+.dropdown-submenu.edge {
+    & > .dropdown-menu {
+      left: initial;
+      right: 100%;
+    }
+    &:hover {
+        & > .dropdown-menu {
+          left: initial;
+          right: 100%;
+        }
+    }  
+}
+
 
 
 #mobile-menu #horz-nav {
