@@ -1,28 +1,92 @@
-.menu-toggle {
-  background-color: @brand-primary;
-  color: #FFF;
-  text-align: left;
-  width: 100%;
-  float: none;
-  margin-bottom: 20px;
-}
+/* * Off Canvas Menu * -------------------------------------------------- */
+ @media screen and (max-width: 767px) {
+     #offcanvas {
+         position: absolute;
+         z-index: 999;
+         right: 0;
+         opacity: .95;
+    }
+     #offcanvas .menu-toggle {
+         position: fixed;
+         top: 0;
+         right: 0;
+         width: auto;
+         z-index:999;
+         background-color: @brand-primary;
+         color: #FFF;
+    }
+     #mobile-menu {
+         background: #f6f6f6;
+         border-left:3px solid #666;
+         display: block;
+         height: 100%;
+         overflow: auto;
+         overflow-x: hidden;
+         padding-top: 45px;
+         position: fixed;
+         right: -20em;
+         font-size: 15px;
+         top: 0;
+         width: 20em;
+         z-index: 998;
+         transition: right 0.3s ease-in-out 0s;
+         -webkit-transition: right 0.3s ease-in-out 0s;
+         -moz-transition: right 0.3s ease-in-out 0s;
+         -o-transition: right 0.3s ease-in-out 0s;
+    }
 
-#mobile-menu {
-  margin: 0 -15px;
-}
-#mobile-menu nav {
-  height: auto !important;
-}
+     #mobile-menu nav {
+         height: auto !important;
+    }
 
-#mobile-menu  .nav > li > a {
-  padding: 5px 15px;
-}
+     #mobile-menu .navbar-nav {
+       margin:0 -15px
+     }
 
-#mobile-menu  a.active {
-  background-color:@brand-primary;
-  color:#fff;
-}
-#mobile-menu  .nav > li >  a::after, 
-#mobile-menu  .nav > li >  a:hover:after {
-  border:0;
+     #mobile-menu  .nav > li > a {
+         padding: 5px 15px;
+    }
+
+     #mobile-menu  a.active {
+         background-color:@brand-primary;
+         color:#fff;
+    }
+     #mobile-menu  .nav > li >  a::after, 
+     #mobile-menu  .nav > li >  a:hover:after {
+         border:0;
+    }
+
+     #mobile-menu #horz-nav {
+         clear: both;
+         overflow: hidden;
+         margin-bottom: 30px;
+         background-color: #999;
+         border-top: 1px solid @brand-primary;
+         border-bottom: 1px solid @brand-primary;
+    }    
+    
+     #mobile-menu #horz-nav a {
+         color: #fff;
+          &:hover {
+            color: @brand-primary;
+          }
+    }
+     #mobile-menu #horz-nav a.active  {
+         color: #fff;
+    }
+
+     #mobile-menu #horz-nav .caret {
+         display: none;
+    }
+
+     #mobile-menu #sidebar-nav {
+         margin: 0;
+    }
+    
+    #mobile-menu #contextual_nav .submenu ul li a.active {
+      color:#fff;
+    }
+     div#mobile-menu.in {
+         right: 0;
+    }
 }
