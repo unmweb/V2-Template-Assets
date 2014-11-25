@@ -14,15 +14,12 @@ module.exports = function(grunt) {
 		concat: {  
 			options : {
 			banner: '/*! *** <%= pkg.name %> - v<%= pkg.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %> */',
-        	separator: '\r\n /*******xxxx*******/ \r\n'
+        '<%= grunt.template.today("yyyy-mm-dd") %> */\r\n',
+        	separator: '\r\n /*******  *******/ \r\n'
 			},
 		    dist: {
 		        src: [
-		        	'bower_components/jquery/dist/jquery.js', //JQuery
-		        	//'bower_components/bootstrap/js/*.js', //Bootstrap JS
-		        	//'bower_components/bootstrap/dist/bootstrap.js' //Bootstrap JS
-		        	
+		        	  'bower_components/jquery/dist/jquery.js', //JQuery
 		        	  'bower_components/bootstrap/js/transition.js',
 			          'bower_components/bootstrap/js/alert.js',
 			          'bower_components/bootstrap/js/button.js',
@@ -35,16 +32,11 @@ module.exports = function(grunt) {
 			          'bower_components/bootstrap/js/scrollspy.js',
 			          'bower_components/bootstrap/js/tab.js',
 			          'bower_components/bootstrap/js/affix.js',
-			          'src/js/unm-scripts.js',
-		        	
-		        	
+			          'src/js/unm-scripts.js', 	
 		        ],
-		        dest: 'dist/js/production.js',
+		        dest: 'dist/js/unm-scripts.js',
 		    }
 		},
-
-
-
 
 		'customize-bootstrap': {
     		dist: {
@@ -54,9 +46,6 @@ module.exports = function(grunt) {
       			}
     		},
   		},
-
-
-
 
         less: {
             dev: {
@@ -76,11 +65,11 @@ module.exports = function(grunt) {
                 options: {
                     paths: ["src/less"],
                     cleancss: false,
-					sourceMap: true,
-  			        sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map',
+				//	sourceMap: true,
+  			    //  sourceMapFilename: 'unm-styles.css.map',
                 },
                 files: {
-                    "dist/css/style.css": [
+                    "dist/css/unm-styles.css": [
                     	"bower_components/fontawesome/less/font-awesome.less", // Font Awesome
                     	"src/less/unm-styles.less"  // Bootstrap and UNM Styles in one
                       ]	
@@ -101,11 +90,11 @@ module.exports = function(grunt) {
 		uglify: {
 		 	options: {
         		sourceMap: true,
-        		sourceMapName: 'dist/js/sourcemap.map'
+        		sourceMapName: 'unm-scripts.map'
       		},
  		   dist: {
-        		src: 'dist/js/production.js',
-        		dest: 'dist/js/production.min.js'
+        		src: 'dist/js/unm-scripts.js',
+        		dest: 'dist/js/unm-scripts.min.js'
     		}
 		},
 		
