@@ -15,6 +15,10 @@ $(document).ready(function() {
 	$(window).resize(function() {
 		moveMenu();
 	});
+	// enable mobile menu toggle button
+	 $("button.menu-toggle.navbar-toggle").click(function() {
+          $("#mobile-menu").toggleClass('in');
+    });		
 });
 
 function moveMenu() {
@@ -86,7 +90,7 @@ function addPanel() {
 /* Loading JSON objects using JSON */
 $(function($) {
 
-	$.getJSON('http://webcore.unm.edu/json.php?content=v2/unm-panel.html').done(function(data) {
+	$.getJSON('//webcore.unm.edu/json.php?content=v2/unm-panel.html').done(function(data) {
 		addPanel();
 		$("#unm_panel .container").append(data.content);
 	}).fail(function(xhr, err, exception, status) {
@@ -99,7 +103,7 @@ $(function($) {
 /**********Load Lobo Alerts  *******/
 /* Loading JSON objects using JSONP */
 $(function($) {
-	var url = 'http://webcore.unm.edu/v2/loboalerts.json';
+	var url = '//webcore.unm.edu/v2/loboalerts.json';
 	$.getJSON(url).done(function(data) {
 		if (data.alert != 'none') {
 			$(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
