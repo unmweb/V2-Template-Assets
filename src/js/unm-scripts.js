@@ -108,7 +108,9 @@ $(function($) {
 		if (data.alert != 'none') {
 			$(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
 			$("#loboalert .content").append('<hgroup><h2>' + data.alert + '</h2><h3>' + data.date + '</h3></hgroup>');
-			$("#loboalert .content").append('<p>' + data.details + ' <a href="' + data.link + '">Read More</a></p>');
+			$("#loboalert .content").append('<p>' + data.details);
+			if (data.link) $("#loboalert .content").append('  <a href="' + data.link + '">Read More</a>');
+			$("#loboalert .content").append('</p>');
 		} else {
 			console.log('No Active LoboAlerts');
 		}
