@@ -1,8 +1,8 @@
 /********************************/
 /**** Primary Horizontal Nav ****/
 
-
 #nav {
+    background-color:@gray-lighter;
     .navbar-top {
         margin-bottom: 0;
     }
@@ -38,7 +38,7 @@
         & > li::after {
             position: absolute;
             height: 3px;
-            background-color: #ccc;
+            background-color: @gray-light;
             width: 0;
             position: absolute;
             bottom: 0;
@@ -53,7 +53,6 @@
         }
     }
 }
-
 
 .dropdown-submenu {
     position: relative;
@@ -77,7 +76,7 @@
         }
         & > a {
             &:after {
-                border-left-color: #ffffff;
+                border-left-color: @gray-light;
             }
         }
     }
@@ -91,8 +90,8 @@
             border-color: transparent;
             border-style: solid;
             border-width: 5px 0 5px 5px;
-            border-left-color: #cccccc;
-            margin-top: 5px;
+            border-left-color: @gray-light;
+            margin-top: 7px;
             margin-right: -10px;
         }
     }
