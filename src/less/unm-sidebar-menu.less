@@ -47,7 +47,6 @@
             margin: 0 0 0 15px;
             padding:0;
             li {
-                font-size: .9em;
                 margin-top: 0;
                 a {
                     color: @gray;
@@ -62,12 +61,14 @@
     }
     li.submenu {
         & > a::after {
-            content: '▾ ';
+            content: ' \25bc ';
             opacity: .7;
+            font-size:.8em;
         }
         & > a.collapsed::after {
-            content: '▸ ';
+            content: ' \25b6 ';
             opacity: .7;
+            font-size:.8em;
         }
     }
 }
