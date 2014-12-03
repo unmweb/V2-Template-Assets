@@ -51,7 +51,8 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     paths: ["src/less"],
-                    optimization: 99
+                    optimization: 99,
+                    
                 },
                 files: {
                     "dist/css/unm-styles.css": [
@@ -64,12 +65,12 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     paths: ["src/less"],
-                    cleancss: false,
+                    cleancss: true,
 				//	sourceMap: true,
   			    //  sourceMapFilename: 'unm-styles.css.map',
                 },
                 files: {
-                    "dist/css/unm-styles.css": [
+                    "dist/css/unm-styles.min.css": [
                     	"bower_components/fontawesome/less/font-awesome.less", // Font Awesome
                     	"src/less/unm-styles.less"  // Bootstrap and UNM Styles in one
                       ]	
@@ -89,8 +90,8 @@ module.exports = function(grunt) {
 	
 		uglify: {
 		 	options: {
-        		sourceMap: true,
-        		sourceMapName: 'unm-scripts.map'
+        		//sourceMap: true,
+        		//sourceMapName: 'unm-scripts.map'
       		},
  		   dist: {
         		src: 'dist/js/unm-scripts.js',
