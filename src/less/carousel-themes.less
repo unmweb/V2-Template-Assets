@@ -1,0 +1,162 @@
+
+/* set default image size to 100% */
+.carousel .item img{
+     width:100%; 
+}
+
+
+/* opaque caption over bottom of image */
+.opaquecaption {
+ 
+  img {
+    width: 100%;
+    }
+   
+  .carousel-caption {
+    background-color:rgba(0,0,0,.65);
+  margin:0;
+    left:initial;
+    right:initial; 
+    bottom:0; 
+    width:100%;
+    text-align:left;
+    padding:20px;
+  }
+
+  .carousel-indicators {
+    bottom: 0;
+    border:1;
+  }
+
+  .carousel-control {
+    width:150px; 
+    padding: 15% 10px;
+  
+    i {display:none;}
+    &:hover i {display:initial;}
+    &.right {text-align: right;}
+    &.left {text-align: left;}
+  }
+    
+  @media only screen and (max-width : 768px) {  
+    .carousel-caption { position:relative;}  
+  }
+}
+
+
+/*******************************/
+
+/******* Side by Side Slider *********/
+
+.sideslide .carousel-controls {
+     position: absolute;
+     bottom: 5px;
+     width: 25%;
+     right: 0;
+     z-index: 3;
+     text-align:center;
+}
+ .sideslide .carousel-controls .carousel-indicators {
+  bottom: 0;
+  display: inline-block;
+  position: initial;
+  left: initial;
+  right: initial;
+  margin: 0;
+}
+
+.sideslide .carousel-controls .carousel-indicators li {
+     width:15px;
+     height:15px;
+      }
+
+ .sideslide .carousel-controls .carousel-indicators li.active {
+    width:17px;
+        height:17px;
+        }
+
+
+ .sideslide a.prev.carousel-control, .sideslide a.next.carousel-control {
+  left: initial;
+  top: initial;
+  margin: 0;
+  bottom: initial;
+  width: auto;
+  background-image: none;
+  position: initial;
+}
+
+
+ .sideslide .carousel-caption {
+     left: auto;
+     text-align: left;
+     background-color: #C10037;
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     height: 100%;
+     padding: 120px 20px 20px 20px;
+     width: 25%;
+     z-index: 1;
+     border-left:1px solid #fff;
+     border-left:1px solid rgba(255,255,255,.5);
+     font-size:14px;
+     font-size:1.5vw;
+}
+ .sideslide .carousel-caption:before {
+     position: absolute;
+     content: "";
+     border-right: 20px solid #FFF;
+     border-right:20px solid rgba(255,255,255,.5);
+     left: -20px;
+     border-top: 20px solid rgba(0, 0, 0, 0);
+     border-bottom: 20px solid rgba(0, 0, 0, 0);
+     top: 50%;
+}
+ .sideslide .carousel-caption::after {
+     position: absolute;
+     content: "";
+     border-right: 20px solid #C10037;
+     left: -18px;
+     border-top: 20px solid rgba(0, 0, 0, 0);
+     border-bottom: 20px solid rgba(0, 0, 0, 0);
+     top: 50%;
+}
+ .sideslide.carousel .item img {
+     margin: 0 25% 0 auto;
+     width:75%;
+    /*max-width:960px;
+     */
+}
+ .sideslide.carousel .item video {
+     width: 75%;
+     height: auto;
+    /*max-width: 960px;
+     */
+     margin: 0 25% 0 auto;
+     display: block;
+}
+ .sideslide h1 {
+     font-size:22px;
+     font-size:2vw;
+}
+ @media screen and (max-width: 920px) {
+     .sideslide .carousel-caption {
+         position:relative;
+         width:100%;
+         border:0;
+         padding:20px;
+    }
+     .sideslide.carousel .item video, .sideslide.carousel .item img {
+         width:100%;
+    }
+.sideslide .carousel-controls {
+     position: relative;
+width: 100%;
+  background: #c10037;
+  padding-bottom: 10px;
+    }
+
+
+}
+
