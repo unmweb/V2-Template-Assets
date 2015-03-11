@@ -50,29 +50,73 @@ function moveMenu() {
 
 /* Dropdown menu edge detection
  *******************************/
-$(".dropdown-menu li").has("ul").hover(function(e) {
-	var elm = $('ul:first', this);
+function edgeDetect(e) {
+      $(e).removeClass('edge');
+	  var elm = $('ul:first', e);
+	  if (elm.hasClass('edge')){
+	  	var off = elm.removeClass('edge').offset().addClass('edge');
+	  } else {
+	  	var off = elm.offset();
+	  }
+	  var l = off.left;
 
-	var off = elm.offset();
-	var l = off.left;
+	  var w = elm.width();
+	  var docW = $("#page").width();
+	  var isEntirelyVisible = (l + w <= docW);
 
-	var w = elm.width();
-	var docW = $("#page").width();
-	var isEntirelyVisible = (l + w <= docW);
+	  if (!isEntirelyVisible) {		
+		$(e).addClass('edge');
+	  } 
+}
 
-	if (!isEntirelyVisible) {
-		$(this).addClass('edge');
-	} else {
-		var menu = $(this);
-		setTimeout(function() {
-			$(menu).removeClass('edge');
-		}, 1000);
 
-	}
-}, function(e) {
-	// on mouse out action...
+ 
+$(function() {
+	
+	$(".dropdown-menu li").has("ul").hover(function(e) {
+		edgeDetect(this);
+	});
+});
+
+/********** Sticky Horizontal Nav ********/
+ 
+$(function() {
+
+// grab the initial top offset of the navigation on first scoll
+	
+	$(window).one('scroll', function(){
+        sticky_navigation_offset_top = $('#nav').offset().top;
+    });
+	
+   $(window).resize(function(){
+        sticky_navigation_offset_top = $('#nav').removeClass('stickynav').offset().top;
+        sticky_navigation();
+    });
+	
+	
+	// and run it again every time you scroll
+	$(window).scroll(function() {
+		 sticky_navigation();
+	});	
+	
+	// our function that decides if the navigation bar should have "fixed" css position or not.
+	var sticky_navigation = function(){
+		var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+		
+		// if we've scrolled more than the navigation, change its position to fixed to stick to top, otherwise change it back to relative
+		if (scroll_top > sticky_navigation_offset_top) { 
+			$('#nav').addClass('stickynav');
+			
+		} else {
+			$('#nav').removeClass('stickynav');
+		}   
+	};
+	
+	
 
 });
+
+
 
 /********** UNM Panel  *******/
 /* Add UNM Panel Container */
@@ -111,9 +155,7 @@ $(function($) {
 			$("#loboalert .content").append('<p>' + data.details);
 			if (data.link) $("#loboalert .content").append('  <a href="' + data.link + '">Read More</a>');
 			$("#loboalert .content").append('</p>');
-		} else {
-			console.log('No Active LoboAlerts');
-		}
+		} 
 	}).fail(function(xhr, err, exception, status) {
 		console.log('Error data:', err);
 		console.log(status + " " + exception);
