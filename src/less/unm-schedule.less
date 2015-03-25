@@ -26,6 +26,19 @@
     color: #fff;
   }
  .panel { margin-bottom:10px;}
+ 
+ .panel-heading.panel-title::after {
+  content: " \f078";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 5%;
+}
+
+.panel-heading.panel-title.collapsed::after {
+  content: " \f054";
+}
+ 
+ 
 .table-responsive {
   border: 0;
   margin: 0 -15px;
