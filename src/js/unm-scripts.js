@@ -122,7 +122,7 @@ $(function() {
 /* Add UNM Panel Container */
 function addPanel() {
 	jQuery("body").append('<div id="unm_panel" class="hidden-xs hidden-sm"><div class="container"></div></div>');
-	jQuery("#toolbar-nav").append('<li class="unm_panel_open hidden-sm"><a href="#panel">more <span class="caret"></span></a></li>');
+	jQuery("#toolbar-nav").append('<li class="unm_panel_open hidden-sm"><a href="#unm_panel">more <span class="caret"></span></a></li>');
 
 	jQuery('.unm_panel_open').click(function(event) {
 		event.preventDefault();
