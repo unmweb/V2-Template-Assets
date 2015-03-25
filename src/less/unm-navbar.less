@@ -27,9 +27,9 @@
 @navbar-unm-search-placeholder-color:   #ccc;
 
 // UNM navbar toggle
-@navbar-unm-toggle-hover-bg:            #333;
+@navbar-unm-toggle-hover-bg:            @gray-dark;
 @navbar-unm-toggle-icon-bar-bg:         #fff;
-@navbar-unm-toggle-border-color:        #333;
+@navbar-unm-toggle-border-color:        @gray-dark;
 
 
 // unm navbar
@@ -40,8 +40,6 @@
   font-size: 13px;
   border-radius: 0;
   margin-bottom:0;
-  
-  
   
     .navbar-brand {
         background: #FFF;
@@ -147,6 +145,7 @@
           &:focus {
             color: @navbar-unm-link-hover-color;
             background-color: @navbar-unm-link-hover-bg;
+            text-decoration:underline;
           }
         }
         > .active > a {
