@@ -5,28 +5,27 @@
 
 
 
-
-
-
-
 /* 2 sidebars  then Content */
 #ssc {
 	#primary {
 	.make-xs-column(12);
-	.make-sm-column(6);
-	.make-sm-column-push(6);
+  .make-sm-column(12);
+  .make-md-column(6);
+  .make-md-column-push(6)
 	}
 	
 	#secondary {
 	.make-xs-column(12);
-	.make-sm-column(3);
-	.make-sm-column-pull(6);
+  .make-sm-column(6);
+	.make-md-column(3);
+	.make-md-column-pull(6);
 	}
 	
 	#tertiary {
 	.make-xs-column(12);
-	.make-sm-column(3);
-	.make-sm-column-pull(6);
+  .make-sm-column(6);
+	.make-md-column(3);
+	.make-md-column-pull(6);
 	}
 }
 /* call outside of generated layout to force float right to deal with different content lenghts */
@@ -36,19 +35,22 @@
 #scs {
 	#primary {
   .make-xs-column(12);
-	.make-sm-column(6);
-	.make-sm-column-push(3);
+  .make-sm-column(12);
+	.make-md-column(6);
+	.make-md-column-push(3);
 	}
 	
 	#secondary {
 	.make-xs-column(12);
-	.make-sm-column(3);
-	.make-sm-column-pull(6);
+  .make-sm-column(6);
+	.make-md-column(3);
+	.make-md-column-pull(6);
 	}
 	
 	#tertiary {
 	.make-xs-column(12);
-	.make-sm-column(3);
+  .make-sm-column(6);
+	.make-md-column(3);
 	}
 }
 
@@ -81,12 +83,14 @@
 #cs {
 	#primary {
 	.make-xs-column(12);	
-	.make-sm-column(9);		
+	.make-sm-column(12);	
+	 .make-md-column(9); 	
 	}
 	
 	#secondary {
 	.make-xs-column(12);	
-	.make-sm-column(3);
+	.make-sm-column(6);
+  .make-md-column(3);
 	}
 	
 	#tertiary {
@@ -109,20 +113,23 @@
 #sc {
 	#primary {
 	.make-xs-column(12);
-	.make-sm-column(9);
-	.make-sm-column-push(3);
+	.make-sm-column(12);
+	.make-md-column(9);
+	.make-md-column-push(3);
 	}
 	
 	#secondary {
 	.make-xs-column(12);
-	.make-sm-column(3);
-	.make-sm-column-pull(9);
+  .make-sm-column(6);
+	.make-md-column(3);
+	.make-md-column-pull(9);
 	}
 	
 	#tertiary {
 	.make-xs-column(12);
-	.make-sm-column(3);
-	.make-sm-column-pull(9);
+  .make-sm-column(6);
+	.make-md-column(3);
+	.make-md-column-pull(9);
 	}
 }
 
