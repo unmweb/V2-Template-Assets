@@ -34,8 +34,8 @@
                 left: 0;
                 content: ' ';
             }
-        }
-        & > li::after {
+
+        & > a::after {
             position: absolute;
             height: 3px;
             background-color: @gray-light;
@@ -48,9 +48,12 @@
             -moz-transition : width 250ms ease-out;
             -o-transition : width 250ms ease-out;
         }
-        & > li:hover::after {
+        & > a:hover::after {
             width: 100%;
         }
+
+        }
+
     }
 }
 
@@ -70,6 +73,17 @@
         display:block;
     }
     &:hover {
+        & > .dropdown-menu {
+            visibility:visible;
+            display: block;
+        }
+        & > a {
+            &:after {
+                border-left-color: @gray-light;
+            }
+        }
+    }
+&.open {
         & > .dropdown-menu {
             visibility:visible;
             display: block;
