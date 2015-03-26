@@ -31,7 +31,6 @@ function moveMenu() {
 			$(this).detach().appendTo('#mobile-menu');
 			sizeStatus = 'small';
 			$(this).find('a.dropdown-toggle').attr('data-toggle', 'no-dropdown');
-
 		});
 	} else if (currentSize > breakpt && sizeStatus == 'small') {
 
@@ -45,7 +44,6 @@ function moveMenu() {
 
 		sizeStatus = 'big';
 	}
-
 }
 
 /* Dropdown menu edge detection
@@ -69,36 +67,41 @@ function edgeDetect(e) {
 	  } 
 }
 
-
- 
 $(function() {
-	
 	$(".dropdown-menu li").has("ul").hover(function(e) {
 		edgeDetect(this);
 	});
 });
 
-/********** Sticky Horizontal Nav ********/
- 
-$(function() {
-
-// grab the initial top offset of the navigation on first scoll
+/********** Support Touch Behavior for Horz menu on larger screens ********/
+$(function() {     
+	$('#horiz-nav .dropdown >.dropdown-toggle').on("touchstart", function (e) {
+	    e.preventDefault();
+	    'use strict'; //satisfy code inspectors
+	    $(this).dropdown("toggle");
+	}); 
 	
+	$('#horiz-nav .dropdown-submenu > .dropdown-toggle').on("touchstart", function (e) {
+	    e.preventDefault();
+	    $(this).parent('.dropdown-submenu').toggleClass("open");
+	    edgeDetect($(this).parent("li"));
+	});      
+ });
+
+/********** Sticky Horizontal Nav ********/
+$(function() {
+// grab the initial top offset of the navigation on first scoll	
 	$(window).one('scroll', function(){
         sticky_navigation_offset_top = $('#nav').offset().top;
     });
-	
    $(window).resize(function(){
         sticky_navigation_offset_top = $('#nav').removeClass('stickynav').offset().top;
         sticky_navigation();
     });
-	
-	
 	// and run it again every time you scroll
 	$(window).scroll(function() {
 		 sticky_navigation();
 	});	
-	
 	// our function that decides if the navigation bar should have "fixed" css position or not.
 	var sticky_navigation = function(){
 		var scroll_top = $(window).scrollTop(); // our current vertical position from the top
@@ -111,12 +114,7 @@ $(function() {
 			$('#nav').removeClass('stickynav');
 		}   
 	};
-	
-	
-
 });
-
-
 
 /********** UNM Panel  *******/
 /* Add UNM Panel Container */
@@ -131,24 +129,30 @@ function addPanel() {
 	});
 }
 
+var panel_url = '//webcore.unm.edu/json.php?content=v2/unm-panel.html';
+
 /* Loading JSON objects using JSON */
 $(function($) {
 
-	$.getJSON('//webcore.unm.edu/json.php?content=v2/unm-panel.html').done(function(data) {
-		addPanel();
-		$("#unm_panel .container").append(data.content);
-	}).fail(function(xhr, err, exception, status) {
-		console.log('Error data:', err);
-		console.log(status + " " + exception);
-		console.log("readyState: " + xhr.readyState + "\nstatus: " + xhr.status + "\nresponseText: " + xhr.responseText);
-	});
+  if(panel_url){	
+		$.getJSON(panel_url).done(function(data) {
+			addPanel();
+			$("#unm_panel .container").append(data.content);
+		}).fail(function(xhr, err, exception, status) {
+			console.log('Error data:', err);
+			console.log(status + " " + exception);
+			console.log("readyState: " + xhr.readyState + "\nstatus: " + xhr.status + "\nresponseText: " + xhr.responseText);
+		});
+	}
 });
+
 
 /**********Load Lobo Alerts  *******/
 /* Loading JSON objects using JSONP */
+var loboalerts_url = '//webcore.unm.edu/v2/loboalerts.json';
 $(function($) {
-	var url = '//webcore.unm.edu/v2/loboalerts.json';
-	$.getJSON(url).done(function(data) {
+  if(loboalerts_url){
+	$.getJSON(loboalerts_url).done(function(data) {
 		if (data.alert != 'none') {
 			$(".navbar-unm").after('<div id="loboalert" class="alert alert-danger row"><span class="fa fa-warning col-md-1"> </span><div class="content col-md-11"></div></div>');
 			$("#loboalert .content").append('<hgroup><h2>' + data.alert + '</h2><h3>' + data.date + '</h3></hgroup>');
@@ -161,6 +165,7 @@ $(function($) {
 		console.log(status + " " + exception);
 		console.log("readyState: " + xhr.readyState + "\nstatus: " + xhr.status + "\nresponseText: " + xhr.responseText);
 	});
+  }
 });
 
 /********** Scroll to Top *******/
