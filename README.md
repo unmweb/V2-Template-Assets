@@ -1,7 +1,7 @@
 UNM-Template
 ============
 
-UNM WCMS Template
+UNM WCMS Template V2
 
 
 
