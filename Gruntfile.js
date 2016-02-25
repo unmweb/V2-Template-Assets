@@ -110,7 +110,6 @@ module.exports = function(grunt) {
     	 	dist: {
       			files: [
      				{expand: true, cwd : 'bower_components/fontawesome/fonts/', src: ['**/*'], dest: 'dist/fonts/fontawesome', filter: 'isFile'},
-     				{expand: true, cwd : 'bower_components/lato/font/', src: ['**/*'], dest: 'dist/fonts/lato', filter: 'isFile'},
      				{expand: true, cwd : 'src', src: ['**/*.html'], dest: 'dist', filter: 'isFile'},
 				]
      		}
