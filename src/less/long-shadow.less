@@ -1,0 +1,11 @@
+#long-shadow {
+    .text(@color: #111,  @size: 200) when (@size > 0) {
+        @str: ~"@{size}px @{size}px";      
+        .echo(@str, @color, @size)  {
+          @_color: darken(@color, 7.5%);
+          text-shadow+: ~"@{_color} @{str}";
+        }
+        .echo(@str, @color, @size);
+        .text(@color,  @size - 1);
+    }
+}
