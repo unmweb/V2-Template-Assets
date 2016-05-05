@@ -51,8 +51,7 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     paths: ["src/less"],
-                    optimization: 99,
-                    
+                    optimization: 99
                 },
                 files: {
                     "dist/css/unm-styles.css": [
