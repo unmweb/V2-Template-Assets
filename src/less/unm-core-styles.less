@@ -153,65 +153,93 @@ a.skip2content {
 }
 
 
-/* UNM Color themes */
-.unm-blue {
+/* UNM Color Box and Brand Elements */
+
+@unm-cherry:  #c10037;
+@unm-teal:    #007a86;
+@unm-blue:    #00356A;
+@unm-green:   #777D12;
+@unm-orange:  #BD5C1A;
+@unm-yellow:  #daa733;
+@unm-gray:    #5E5D60;
+
+
+@import "long-shadow"; // long shadow mixin
+
+//mixin to create box with hover and textshadow affect.
+.colorbox(@bgcolor;) {
     color:#fff;
-    background-color: #00356A;
+    background-color: @bgcolor;
     opacity: .8;
-}
-.unm-blue:hover {
-  opacity: 1;
-  color: #fff;
+    overflow:hidden;
+    &:hover {
+      opacity:1
+    }
+   .textshadow {
+      #long-shadow.text(@bgcolor);
+    }
 }
 
-.unm-green  {
-  color:#fff;
-  background-color: #777D12;
-    opacity: .8;
+.unm-cherry  {.colorbox(@unm-cherry);}
+.unm-teal  {.colorbox(@unm-teal);}
+.unm-blue {.colorbox(@unm-blue);}
+.unm-green  {.colorbox(@unm-green);}
+.unm-orange  {.colorbox(@unm-orange);}
+.unm-gray  {.colorbox(@unm-gray);}
+.unm-yellow  {.colorbox(@unm-yellow);}
+
+//standard on white text shadow
+.textshadow {
+      #long-shadow.text(#ffffff);
+    }
+
+/* boxshadow */
+.boxshadow {position:relative;}
+.boxshadow:before, .boxshadow:after {
+   content: " ";
+   position: absolute;
+   display: block;
+   border: 0;
+}
+.boxshadow:before {
+   top: 0;
+   left: 100%;
+   height: 100%;
+   width: 0;
+   padding-right: 100%;
+   transform-origin: 0% 0%;
+   transform: skew(0deg, 45deg);
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+   box-shadow: 0px 1px 0px 0 rgba(0,0,0,.1);
 }
 
-.unm-green:hover {
-  opacity: 1;
-  color: #fff;
+.boxshadow:after {
+   top: 100%;
+   left: 0;
+   width: 100%;
+   height: 0;
+   padding-top: 100%;
+   transform-origin: 0% 0%;
+   transform: skew(45deg, 0deg);
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+   box-shadow: 1px 0px 0px 0 rgba(0,0,0,.1);
 }
 
+/* crossshadow */
+.crossshadow {position:relative;}  
+.crossshadow:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(45deg,transparent 50% ,rgba(0,0,0,.05) 50%);  
+    z-index:0;
+    }    
 
-.unm-orange  {
-  color:#fff;
-  background-color: #BD5C1A;
-    opacity: .8;
-}
-.unm-orange:hover {
-  opacity: 1;
-  color: #fff;
-}
-.unm-gray  {
-  color:#fff;
-  background-color: #5E5D60;
-    opacity: .8;
-}
-.unm-gray:hover {
-  opacity: 1;
-  color: #fff;
-}
 
-.unm-yellow  {
-  color:#fff;
-  background-color: #daa733;
-    opacity: .8;
-}
-.unm-yellow:hover {
-  opacity: 1;
-  color: #fff;
-}
+/* stucco texture overlay */
+.stucco {background-image: url(//webcore.unm.edu/v2/images/stucco.png);}
 
-.unm-cherry  {
-  color:#fff;
-  background-color: #c10037;
-    opacity: .8;
-}
-.unm-cherry:hover {
-  opacity: 1;
-  color: #fff;
-}
 /* end */
