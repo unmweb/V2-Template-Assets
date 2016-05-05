@@ -194,7 +194,10 @@ a.skip2content {
     }
 
 /* boxshadow */
-.boxshadow {position:relative;}
+.boxshadow {
+    position:relative;
+    overflow: visible !important;
+    }
 .boxshadow:before, .boxshadow:after {
    content: " ";
    position: absolute;
@@ -241,5 +244,12 @@ a.skip2content {
 
 /* stucco texture overlay */
 .stucco {background-image: url(//webcore.unm.edu/v2/images/stucco.png);}
+
+/* helper class to contain contents in an element */
+.contained {
+    overflow: hidden;
+}
+
+
 
 /* end */
