@@ -50,7 +50,7 @@ body {
 /********************************/
 /**** Footer ****/
 #footer {
-    background: @brand-primary url(//webcore.unm.edu/v2/images/mesa-mountain-red.png) bottom right no-repeat;
+    background: @brand-primary url(@footer-bg) bottom right no-repeat;
     color: #fff;
     border-top: 3px solid #CCC;
     padding: 30px 0;
@@ -170,6 +170,8 @@ a.skip2content {
 .clear-right {
   clear: right;
 }
+
+/* legacy color rules */
 .cherry {
   color: #c10037;
 }
@@ -179,26 +181,37 @@ a.skip2content {
 
 /* UNM Color Box and Brand Elements */
 
-@unm-cherry:  #c10037;
-@unm-teal:    #007a86;
-@unm-blue:    #00356A;
-@unm-green:   #777D12;
-@unm-orange:  #BD5C1A;
-@unm-yellow:  #daa733;
-@unm-gray:    #5E5D60;
+@unm-cherry:    #c10037;
+@unm-teal:      #007a86;
+@unm-blue:      #00356A;
+@unm-green:     #777D12;
+@unm-orange:    #BD5C1A;
+@unm-yellow:    #daa733;
+@unm-gray:      #5E5D60;
+@unm-lightgray: #a4a3a7;
+@unm-purple:    #620c69;
 
 
 @import "long-shadow"; // long shadow mixin
+
+
+.hoveropacity {
+    opacity:.8;
+    &:hover {
+      opacity:1;
+      transition: opacity .25s ease-in-out;
+      -moz-transition: opacity .25s ease-in-out;
+      -webkit-transition: opacity .25s ease-in-out;
+    }
+  }
+
 
 //mixin to create box with hover and textshadow affect.
 .colorbox(@bgcolor;) {
     color:#fff;
     background-color: @bgcolor;
-    opacity: .8;
     overflow:hidden;
-    &:hover {
-      opacity:1
-    }
+    
    .textshadow {
       #long-shadow.text(@bgcolor);
     }
@@ -210,7 +223,9 @@ a.skip2content {
 .unm-green  {.colorbox(@unm-green);}
 .unm-orange  {.colorbox(@unm-orange);}
 .unm-gray  {.colorbox(@unm-gray);}
+.unm-lightgray  {.colorbox(@unm-lightgray);}
 .unm-yellow  {.colorbox(@unm-yellow);}
+.unm-purple  {.colorbox(@unm-purple);}
 
 //standard on white text shadow
 .textshadow {
