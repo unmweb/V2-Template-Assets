@@ -41,35 +41,38 @@
   border-radius: 0;
   margin-bottom:0;
   
+   @media (max-width: @grid-float-breakpoint-max) {
+      border: 0;
+      .container {
+        width: 100%;
+        padding: 0;
+        }
+    }
+  
+  
     .navbar-brand {
         background: #FFF;
+        color: @navbar-unm-brand-color;
         position: absolute;
         border-bottom: 3px solid @brand-primary;
-        box-shadow: 0 0 5px 2px #CCC;
         background-image: url(@logo-url);
         text-indent: -999px;
-        width: 200px;
+        width: 235px;
         background-repeat: no-repeat;
-        height: auto;
+        height: 70px;
         background-position-x: 50%;
         background-position-y: 50%;
-        margin-left: 0;
-        padding: 20px;
-        top: -1px;
         z-index:100;
+        padding:0;
+        background-size:contain;
+        top:-1px;
+        
+          @media (max-width: @grid-float-breakpoint-max) {
+           position:relative;
+           width:100%; 
+          }
     }
       
- 
-  
-  .navbar-brand {
-    color: @navbar-unm-brand-color;
-   // &:hover,
-   // &:focus {
-   //   color: @navbar-unm-brand-hover-color;
-   //   background-color: @navbar-unm-brand-hover-bg;
-   // }
-  }
-
   .navbar-text {
     color: @navbar-unm-color;
   }
